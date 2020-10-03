@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %} Cliente - Deletar {% endblock %}
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Tem certeza que deseja deletar "{{ object }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+{% endblock %}

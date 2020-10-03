@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Cliente - Adicionar {% endblock %}
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+	<div class="card">
+		<div class="card-header">
+			<h4 class="text-center">Alterar Dados do Cliente</h4>
+		</div>
+		<div class="col-md-12 col-md-offset-3">
+        <h1></h1>
+			<form role="form" method="post" id="reused_form" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						<input type="text" class="form-control" id="nome" name="nome" maxlength="100" value="{{ cliente.nome }}">
+					</div>
+					<div class="col-sm-6 form-group">
+						<input type="text" class="form-control" id="age" name="age" maxlength="100" value="{{ cliente.age }}">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						<input type="text" class="form-control" id="endereco" name="endereco" maxlength="100" value="{{ cliente.endereco }}">
+					</div>
+					<div class="col-sm-6 form-group">
+						<input type="tel" class="form-control" id="id-salario" name="salario" required maxlength="50" value="{{ cliente.salario }}">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						<textarea class="form-control" type="textarea" id="bio" name="bio"  maxlength="6000" rows="7">{{ object.bio }}</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						{{form.imagem}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 form-group">
+						<button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs"> Atualizar </button>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+</div>
+{% endblock %}

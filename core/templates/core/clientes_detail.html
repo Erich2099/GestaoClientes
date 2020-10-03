@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Cliente - Perfil {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 img">
+      <img src="{{ object.imagem.thumb.url }}"  alt="" class="float-right">
+    </div>
+    <div class="col-md-6 details">
+      <blockquote>
+        <h5>{{ object.nome | capfirst }}</h5>
+        <small><cite title="Source Title">{{ object.endereco }}<i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        Idade:  {{ object.age }}<br>
+        Salário:  {{ object.salario }}<br><br>
+        Descrição: {{ object.bio | linebreaks}} <br>
+        <a href="{% url 'cliente-atualizar' object.id %}">Atualizar Cliente</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
