@@ -2,8 +2,6 @@
 *.pyc
 __pycache__/
 
-#Ignorando migrations:
-migrations/
 
 #Ignorando pasta de media:
 media/
