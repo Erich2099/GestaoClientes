@@ -1,1 +1,1 @@
-python-3.6.12
+web: gunicorn gestaoclientes.wsgi --log-file -
