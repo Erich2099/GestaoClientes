@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
-{% block title %} Gestão de Clientes {% endblock %}
+{% load static %}
+{% block title %} Home {% endblock %}
 {% block content %}
-<div id="page-content-wrapper">
-  <div class="container-fluid">
-    <h1 class="mt-4">Gestão de Clientes</h1>
-    <p>Banco de dados simplificado para cadastro de pessoas, com os campos: nome, idade, endereço, bio, salário e imagem.</p>
-    <p>Neste website, você pode consultar, criar e apagar registros.</p>
-    {% if user.is_authenticated %}
-    <p>Olá,  {{ user.username|capfirst }}!</p>
-    {% else %}
-    <p>Para entrar, clique <a href="{% url 'login' %}">aqui</a>.</p>
-    {% endif %}
-  </div>
+<div class="container-fluid">
+  <h1 class="mt-4">Gestão de Clientes</h1>
+  <p>Banco de dados simplificado para cadastro de pessoas, com os seguintes campos: nome, idade, endereço, bio, salário e imagem.</p>
+  <p>Neste website, você pode consultar, criar e apagar registros.</p>
+  <p>Objeto do curso Django 2.x da Udemy - Professor Gregory Pacheco.</p>
+  <h4>Olá, {{ user.username|capfirst }}!</h4>
 </div>
 {% endblock %}

@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Seja bem vindo {% endblock %}
+{% block title %} Lista {% endblock %}
 {% block content %}
 <div class="col-md-8">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="text-center">Lista de Clientes</h4>
-        </div>
-        <table class="table table-hover">
-            {% for c in object_list %}
-            <tbody>
-                <tr>
-                  <td>{{ c.id }}</td>
-                  <td><a href="{% url 'cliente-detalhe' c.id %}">{{ c.nome }}</a></td>
-                  <td><a href="{% url 'cliente-apagar' c.id %}"><img width="20px" height="29px" align="top" src="{% static 'img/trash.png' %}" alt=""></a> </td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
+  <div class="card">
+    <div class="card-header">
+      <h4 class="text-center">Lista de Clientes</h4>
     </div>
+    {% if cliente %}
+    <table class="table table-hover">
+      {% for c in object_list %}
+      <tbody>
+        <tr>
+          <td>{{ c.id }}</td>
+          <td><a href="{% url 'cliente-detalhe' c.id %}">{{ c.nome }}</a></td>
+          <td><a href="{% url 'cliente-apagar' c.id %}"><img width="20px" height="29px" align="top" src="{% static 'img/trash.png' %}" alt=""></a> </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    {% else %}
+    <div>
+      <center>
+        <h4>Desculpe.</h4>
+        <h4>Não há clientes registrados</h4>
+      </center>
+    </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
